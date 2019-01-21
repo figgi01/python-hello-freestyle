@@ -8,11 +8,20 @@ use scanner-cli or Aqua Security plugin.
 
 ### General notes
 
-If you are failing the build, do so before the sccanner-cli
+If you are failing the build on disallow:
+* Do not use --register flag.  Image will still show up in CI/CD scans
+  on 3.5+ version.  Exclude --registry as well or it will try to scan
+  from registry.
+
+  Instead, send curl POST with image details to Aqua console.  Example to be added.
 
 
-### Jenkins Freestyle project snippet
+### TODO
+* Add Jenkinsfile example
+* Add curl example after build
+* Add Alternate examples handling exit code output.
 
+### Jenkins freestyle project without plugin
 
 This example includes use of scanner-cli directly, as a build step
 within jenkins in a freestyle project, without use of Aqua Security plugin.
