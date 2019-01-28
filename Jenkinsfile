@@ -6,11 +6,16 @@ node ('docker') {
     }
 
     stage('Scan image with Aqua') {
-        aqua locationType: 'local', localImage: 'demouser/appimage:${BUILD_NUMBER}', hideBase: false,  notCompliesCmd: '', onDisallowed: 'fail', showNegligible: false
+        aqua locationType: 'local', localImage: 'demouser/appimage:${BUILD_NUMBER}', hideBase: false,  notCompliesCmd: '', onDisallowed: 'fail', showNegligible: false, register: true, registry: "Docker Hub"
     }
 
     stage('Push to registry') {
         // Going to skip this part for testing.
     }
-    
+
+    stage('Scan image with Aqua') {
+        aqua locationType: 'local', localImage: 'demouser/appimage:${BUILD_NUMBER}', hideBase: false,  notCompliesCmd: '', onDisallowed: 'fail', showNegligible: false, register: true, registry: "Docker Hub"
+    }
+
+
 }
