@@ -6,7 +6,7 @@ node ('docker') {
     }
 
     stage('Scan image with Aqua') {
-        aqua locationType: 'local', localImage: 'figgi01/appimage:${BUILD_NUMBER}', hideBase: true1,  notCompliesCmd: '', onDisallowed: 'fail', showNegligible: false
+        aqua locationType: 'local', localImage: 'figgi01/appimage:${BUILD_NUMBER}', hideBase: true,  notCompliesCmd: '', onDisallowed: 'fail', showNegligible: false
     }
 
     stage('Push to registry') {
