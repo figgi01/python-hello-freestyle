@@ -14,7 +14,7 @@ node ('docker') {
     }
 
     stage('Scan image with Aqua22') {
-        aqua locationType: 'local', localImage: 'figgi01/appimage:${BUILD_NUMBER}', hideBase: true,  notCompliesCmd: '', onDisallowed: 'fail', showNegligible: false, register: true, registry: "Docker Hub"
+        aqua locationType: 'local', localImage: 'figgi01/appimage:${BUILD_NUMBER}', checkonly: true,  notCompliesCmd: '', onDisallowed: 'fail', showNegligible: false, register: false
     }
 
 
